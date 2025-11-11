@@ -37,7 +37,7 @@ class ListViewPage extends StatelessWidget {
 
   /// Lista de perfumes reales con imágenes locales
   static final List<Perfume> perfumes = [
-    // PERFUMES ORIGINALES
+    // PERFUMES ORIGINALES (con imágenes locales)
     Perfume(
       id: 'perfume_1',
       nombre: 'L\'Homme Prada Intense',
@@ -82,14 +82,14 @@ class ListViewPage extends StatelessWidget {
       concentracion: 'Eau de Parfum',
       duracionHoras: 10,
     ),
-    // PERFUMES AÑADIDOS CON DATOS ENRIQUECIDOS USANDO FAKER
+    // PERFUMES AÑADIDOS CON DATOS ENRIQUECIDOS USANDO FAKER E IMÁGENES DE RED
     Perfume(
       id: 'perfume_5',
       nombre: 'Noir Essentiel',
-      descripcion: faker.lorem.sentence(),
+      descripcion: 'Una fragancia sofisticada con notas amaderadas y especiadas que evoca elegancia y misterio. Perfecta para ocasiones especiales y noches inolvidables.',
       precio: '${faker.randomGenerator.integer(80, min: 45)}€',
-      imagePath: 'assets/images/fotocolonia.jpg',
-      isLocal: true,
+      imagePath: 'https://picsum.photos/seed/perfume1/300/300',
+      isLocal: false,
       marca: faker.company.name(),
       notasOlfativas: 'Bergamota, Sandalo, Vainilla',
       concentracion: 'Eau de Parfum',
@@ -98,10 +98,10 @@ class ListViewPage extends StatelessWidget {
     Perfume(
       id: 'perfume_6',
       nombre: 'Aqua Marine',
-      descripcion: faker.lorem.sentence(),
+      descripcion: 'Fragancia fresca y acuática que captura la esencia del océano. Notas cítricas y marinas que revitalizan los sentidos.',
       precio: '${faker.randomGenerator.integer(95, min: 50)}€',
-      imagePath: 'assets/images/fotocolonia.jpg',
-      isLocal: true,
+      imagePath: 'https://picsum.photos/seed/perfume2/300/300',
+      isLocal: false,
       marca: faker.company.name(),
       notasOlfativas: 'Citricos, Menta, Almizcle',
       concentracion: 'Eau de Toilette',
@@ -110,10 +110,10 @@ class ListViewPage extends StatelessWidget {
     Perfume(
       id: 'perfume_7',
       nombre: 'Velvet Oud',
-      descripcion: faker.lorem.sentence(),
+      descripcion: 'Una composición lujosa que combina la riqueza del oud con suaves notas florales. Fragancia intensa y seductora.',
       precio: '${faker.randomGenerator.integer(150, min: 80)}€',
-      imagePath: 'assets/images/fotocolonia.jpg',
-      isLocal: true,
+      imagePath: 'https://picsum.photos/seed/perfume3/300/300',
+      isLocal: false,
       marca: faker.company.name(),
       notasOlfativas: 'Oud, Rosa, Cuero',
       concentracion: 'Parfum',
@@ -122,57 +122,107 @@ class ListViewPage extends StatelessWidget {
     Perfume(
       id: 'perfume_8',
       nombre: 'Citrus Splash',
-      descripcion: faker.lorem.sentence(),
+      descripcion: 'Energizante combinación de cítricos brillantes con toques herbales. Ideal para el uso diario y momentos de frescura.',
       precio: '${faker.randomGenerator.integer(65, min: 35)}€',
-      imagePath: 'assets/images/fotocolonia.jpg',
-      isLocal: true,
+      imagePath: 'https://picsum.photos/seed/perfume4/300/300',
+      isLocal: false,
       marca: faker.company.name(),
       notasOlfativas: 'Limon, Neroli, Almizcle',
       concentracion: 'Eau de Cologne',
       duracionHoras: faker.randomGenerator.integer(8, min: 4),
     ),
+    Perfume(
+      id: 'perfume_9',
+      nombre: 'Amber Night',
+      descripcion: 'Fragancia cálida y envolvente con notas de ámbar y especias. Crea una atmósfera de confort y sofisticación.',
+      precio: '${faker.randomGenerator.integer(110, min: 70)}€',
+      imagePath: 'https://picsum.photos/seed/perfume5/300/300',
+      isLocal: false,
+      marca: faker.company.name(),
+      notasOlfativas: 'Ambar, Vainilla, Canela',
+      concentracion: 'Eau de Parfum',
+      duracionHoras: faker.randomGenerator.integer(9, min: 5),
+    ),
+    Perfume(
+      id: 'perfume_10',
+      nombre: 'Wooden Mystique',
+      descripcion: 'Composición amaderada con carácter misterioso. Notas de sándalo y vetiver que perduran en la piel.',
+      precio: '${faker.randomGenerator.integer(125, min: 75)}€',
+      imagePath: 'https://picsum.photos/seed/perfume6/300/300',
+      isLocal: false,
+      marca: faker.company.name(),
+      notasOlfativas: 'Sandalo, Vetiver, Pimienta',
+      concentracion: 'Eau de Toilette',
+      duracionHoras: faker.randomGenerator.integer(11, min: 7),
+    ),
   ];
 
   // Widget para mostrar imagen con mejor manejo de errores
-  Widget _buildPerfumeImage(String imagePath, String perfumeName) {
+  Widget _buildPerfumeImage(Perfume perfume) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: Container(
         width: 80,
         height: 80,
         color: Colors.grey[200],
-        child: Image.asset(
-          imagePath,
-          width: 80,
-          height: 80,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
-            print('Error cargando imagen: $imagePath');
-            return Container(
-              width: 80,
-              height: 80,
-              color: const Color(0xFFB8860B).withOpacity(0.3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.photo_camera, color: Color(0xFF8B4513), size: 24),
-                  const SizedBox(height: 4),
-                  Text(
-                    perfumeName.split(' ').take(2).join('\n'),
-                    style: const TextStyle(
-                      fontSize: 9,
-                      color: Color(0xFF8B4513),
-                      fontWeight: FontWeight.bold,
+        child: perfume.isLocal
+            ? Image.asset(
+                perfume.imagePath,
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error cargando imagen local: ${perfume.imagePath}');
+                  return _buildPlaceholderImage(perfume.nombre);
+                },
+              )
+            : CachedNetworkImage(
+                imageUrl: perfume.imagePath,
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Container(
+                  width: 80,
+                  height: 80,
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFB8860B)),
                     ),
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
                   ),
-                ],
+                ),
+                errorWidget: (context, url, error) {
+                  print('Error cargando imagen de red: $url');
+                  return _buildPlaceholderImage(perfume.nombre);
+                },
               ),
-            );
-          },
-          // loadingBuilder no es necesario para Image.asset, se carga sincrónicamente
-        ),
+      ),
+    );
+  }
+
+  // Widget para imagen de placeholder cuando hay error
+  Widget _buildPlaceholderImage(String perfumeName) {
+    return Container(
+      width: 80,
+      height: 80,
+      color: const Color(0xFFB8860B).withOpacity(0.3),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.photo_camera, color: Color(0xFF8B4513), size: 24),
+          const SizedBox(height: 4),
+          Text(
+            perfumeName.split(' ').take(2).join('\n'),
+            style: const TextStyle(
+              fontSize: 9,
+              color: Color(0xFF8B4513),
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+          ),
+        ],
       ),
     );
   }
@@ -302,25 +352,7 @@ class ListViewPage extends StatelessWidget {
             ),
           ),
           
-          // Indicador de perfumes con datos extendidos
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 5),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            decoration: BoxDecoration(
-              color: dorado.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Text(
-              'Perfumes con datos enriquecidos usando Faker',
-              style: TextStyle(
-                fontSize: 12,
-                color: Color(0xFF8B4513),
-                fontFamily: 'Roboto',
-              ),
-            ),
-          ),
-          
-          const SizedBox(height: 5),
+          const SizedBox(height: 10),
 
           // Lista dinámica de perfumes
           Expanded(
@@ -328,7 +360,7 @@ class ListViewPage extends StatelessWidget {
               itemCount: perfumes.length,
               itemBuilder: (context, index) {
                 final perfume = perfumes[index];
-                final isExtendedData = index >= 4; // Los últimos 4 tienen datos extendidos
+                final isExtendedData = index >= 4; // Los últimos 6 tienen datos extendidos
                 
                 return Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -348,31 +380,17 @@ class ListViewPage extends StatelessWidget {
                   ),
                   child: InkWell(
                     onTap: () {
+                      // Snackbar según lo solicitado por el profesor
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: RichText(
-                            text: TextSpan(
-                              style: const TextStyle(
-                                fontFamily: 'Roboto',
-                                fontSize: 14,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: '${perfume.nombre}\n',
-                                  style: const TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                TextSpan(
-                                  text: 'Marca: ${perfume.marca ?? "N/A"}\n',
-                                  style: const TextStyle(fontSize: 12),
-                                ),
-                                TextSpan(
-                                  text: 'Precio: ${perfume.precio} • Duracion: ${perfume.duracionHoras ?? "N/A"}h',
-                                  style: const TextStyle(fontSize: 12),
-                                ),
-                              ],
+                          content: Text(
+                            'La visualización detallada se desarrollará en la Fase 3',
+                            style: const TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 14,
                             ),
                           ),
-                          duration: const Duration(seconds: 3),
+                          duration: const Duration(seconds: 2),
                           backgroundColor: dorado,
                         ),
                       );
@@ -385,7 +403,7 @@ class ListViewPage extends StatelessWidget {
                           // Imagen del perfume
                           Stack(
                             children: [
-                              _buildPerfumeImage(perfume.imagePath, perfume.nombre),
+                              _buildPerfumeImage(perfume),
                               if (isExtendedData)
                                 Positioned(
                                   top: -5,
