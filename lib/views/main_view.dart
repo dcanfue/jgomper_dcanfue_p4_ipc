@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'list_view.dart';
+import 'list_view.dart'; // Importamos el catálogo para ir allí al pulsar el botón
 
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
@@ -20,75 +20,57 @@ class MainView extends StatelessWidget {
           ),
         ),
         child: Container(
-          color: Colors.black.withOpacity(0.35),
+          color: Colors.black.withOpacity(0.4), // Oscurecemos la imagen para leer mejor
           child: Center(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Cabecera
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.spa, color: Colors.amberAccent, size: 40),
-                      SizedBox(width: 10),
-                      Text(
-                        'Perfumería Bloom',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                  const Icon(Icons.spa, color: Colors.amberAccent, size: 50),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Perfumería Bloom',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                   const SizedBox(height: 15),
                   const Text(
                     'Fragancias elegantes para cada ocasión',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Roboto',
-                      color: Colors.white70,
-                    ),
+                    style: TextStyle(fontSize: 18, color: Colors.white70),
                     textAlign: TextAlign.center,
                   ),
 
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 50),
 
-                  // Contenedor de introducción
+                  // Caja de bienvenida
                   Container(
-                    padding: const EdgeInsets.all(20),
-                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    padding: const EdgeInsets.all(25),
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
                     decoration: BoxDecoration(
                       color: crema.withOpacity(0.9),
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          offset: Offset(2, 2),
-                        ),
+                        BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(2, 2)),
                       ],
                     ),
                     child: const Text(
-                      'Descubre nuestra colección exclusiva de colonias premium. '
-                      'Aromas clásicos y modernos para todos los gustos. '
-                      'Explora nuestro catálogo con las mejores fragancias de marcas como Prada, Hugo Boss y Dior.',
+                      'Bienvenido de nuevo.\n\nDescubre nuestra nueva colección de temporada con las mejores marcas internacionales.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 16,
-                        fontFamily: 'Roboto',
-                      ),
+                      style: TextStyle(fontSize: 16, height: 1.5, color: Colors.black87),
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 40),
 
-                  // Botón de navegación al listado dinámico
+                  // BOTÓN PARA IR AL CATÁLOGO
                   GestureDetector(
                     onTap: () {
+                      // CAMBIO: Navegamos con push (para poder volver atrás si quisiéramos)
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -97,39 +79,31 @@ class MainView extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                      margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                       decoration: BoxDecoration(
                         color: dorado,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(30),
                         boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black38,
-                            blurRadius: 10,
-                            offset: Offset(3, 3),
-                          ),
+                          BoxShadow(color: Colors.black38, blurRadius: 10, offset: Offset(0, 5)),
                         ],
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: const [
-                          Icon(Icons.arrow_forward, color: Colors.white),
-                          SizedBox(width: 10),
                           Text(
-                            'Ver catálogo de colonias',
+                            'VER CATÁLOGO',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'Roboto',
                             ),
                           ),
+                          SizedBox(width: 10),
+                          Icon(Icons.arrow_forward, color: Colors.white),
                         ],
                       ),
                     ),
                   ),
-                  
-                  const SizedBox(height: 40),
                 ],
               ),
             ),

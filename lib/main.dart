@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/main_view.dart';
+import 'views/login_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,11 +12,12 @@ class MyApp extends StatelessWidget {
     const Color dorado = Color(0xFFB8860B);
 
     return MaterialApp(
-      title: 'P2 IPC - Listado Dinámico',
+      title: 'Perfumería Bloom', // Título actualizado
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: crema,
         primaryColor: dorado,
+        useMaterial3: true, // Recomendado para widgets más modernos
         appBarTheme: const AppBarTheme(
           backgroundColor: dorado,
           foregroundColor: Colors.white,
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           titleLarge: TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.bold),
         ),
       ),
-      home: const MainView(),
+      
+      home: const LoginView(),
     );
   }
 }
