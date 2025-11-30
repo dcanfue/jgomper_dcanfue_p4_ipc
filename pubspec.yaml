@@ -14,10 +14,11 @@ dependencies:
 flutter:
   uses-material-design: true
   assets:
+    # Imágenes existentes
     - assets/images/fotocolonia.jpg
     - assets/images/l-homme-intense-prada.jpg
     - assets/images/luna-rossa-carbon.jpg
     - assets/images/sauvage-recharge-eau-de-toilette.jpg
     - assets/images/boss-bottled-parfum.jpg
-
-
+    
+    - assets/data.json

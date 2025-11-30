@@ -1,0 +1,64 @@
+{
+  "perfumes": [
+    {
+      "id": "p1",
+      "nombre": "Boss Bottled Parfum",
+      "descripcion": "Una fragancia intensa y amaderada. Combina notas de mandarina picante y aceites de incienso noble, creando una atmósfera de sofisticación.",
+      "precio": "118€",
+      "imagePath": "https://fimgs.net/mdimg/perfume/375x500.75968.jpg",
+      "isLocal": false,
+      "marca": "Hugo Boss",
+      "concentracion": "Parfum",
+      "duracionHoras": 12,
+      "notasOlfativas": "Mandarina, Incienso, Cedro"
+    },
+    {
+      "id": "p2",
+      "nombre": "L'Homme Prada Intense",
+      "descripcion": "Refleja la dualidad de la identidad masculina. Una fragancia que te sumerge en un viaje olfativo con capas de ámbar y pachulí.",
+      "precio": "132€",
+      "imagePath": "https://fimgs.net/mdimg/perfume/375x500.45388.jpg",
+      "isLocal": false,
+      "marca": "Prada",
+      "concentracion": "Eau de Parfum",
+      "duracionHoras": 8,
+      "notasOlfativas": "Ámbar, Pachulí, Iris"
+    },
+    {
+      "id": "p3",
+      "nombre": "Luna Rossa Carbon",
+      "descripcion": "Fusión de frescura mineral e innovación industrial. Notas metálicas de lavanda, tierra mojada y ambroxan brillante.",
+      "precio": "89€",
+      "imagePath": "https://fimgs.net/mdimg/perfume/375x500.43549.jpg",
+      "isLocal": false,
+      "marca": "Prada",
+      "concentracion": "Eau de Toilette",
+      "duracionHoras": 6,
+      "notasOlfativas": "Lavanda, Carbón, Cítricos"
+    },
+    {
+      "id": "p4",
+      "nombre": "Sauvage Elixir",
+      "descripcion": "Una fragancia concentrada y extraordinaria. La frescura embriagadora de Sauvage con un corazón de especias y lavanda.",
+      "precio": "145€",
+      "imagePath": "https://fimgs.net/mdimg/perfume/375x500.68415.jpg",
+      "isLocal": false,
+      "marca": "Dior",
+      "concentracion": "Elixir",
+      "duracionHoras": 14,
+      "notasOlfativas": "Nuez Moscada, Canela, Lavanda"
+    },
+    {
+      "id": "p5",
+      "nombre": "Acqua di Gio Profondo",
+      "descripcion": "Una inmersión profunda en la inmensidad azul del mar. Despierta los sentidos con mandarina verde y bergamota.",
+      "precio": "95€",
+      "imagePath": "https://fimgs.net/mdimg/perfume/375x500.59530.jpg",
+      "isLocal": false,
+      "marca": "Giorgio Armani",
+      "concentracion": "Eau de Parfum",
+      "duracionHoras": 7,
+      "notasOlfativas": "Notas Marinas, Romero, Almizcle"
+    }
+  ]
+}
