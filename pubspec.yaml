@@ -1,18 +1,29 @@
-name: jgomper_dcanfue_p2
-description: Práctica Fase 2 - Lista dinámica
+name: jgomper_dcanfue_p3 
+description: Práctica Fase 4 - Formulario, i18n y Responsive
 publish_to: 'none'
 
 environment:
-  sdk: '^3.9.0'
+  sdk: '>=3.0.0 <4.0.0' 
 
 dependencies:
   flutter:
     sdk: flutter
+  
+  # Librería para imágenes de internet (P3)
   cached_network_image: ^3.3.3
   faker: ^2.1.0
 
+  # NUEVAS DEPENDENCIAS PARA P4 (Idiomas)
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
 flutter:
   uses-material-design: true
+  
+  
+  generate: true
+
   assets:
     # Imágenes existentes
     - assets/images/fotocolonia.jpg
@@ -20,5 +31,5 @@ flutter:
     - assets/images/luna-rossa-carbon.jpg
     - assets/images/sauvage-recharge-eau-de-toilette.jpg
     - assets/images/boss-bottled-parfum.jpg
-    
+    # Datos JSON
     - assets/data.json
