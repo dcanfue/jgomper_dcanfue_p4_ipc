@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'list_view.dart'; // Importamos el modelo Perfume
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // [NUEVO] Para traducciones
+import 'checkout_view.dart'; // [NUEVO] Para ir al formulario
+import 'list_view.dart'; // Tu modelo Perfume
 
 class CartView extends StatefulWidget {
   const CartView({Key? key}) : super(key: key);
 
   // --- LISTA GLOBAL (Estática) ---
-  // Al ser static, se mantiene en memoria aunque cambiemos de pantalla
   static List<Perfume> carrito = [];
 
   @override
@@ -30,6 +31,9 @@ class _CartViewState extends State<CartView> {
   Widget build(BuildContext context) {
     const Color dorado = Color(0xFFB8860B);
     const Color crema = Color(0xFFFFF8E7);
+    
+    // [NUEVO] Acceso a las traducciones
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: crema,
@@ -130,6 +134,8 @@ class _CartViewState extends State<CartView> {
                         ],
                       ),
                       const SizedBox(height: 20),
+                      
+                      // BOTÓN TRAMITAR PEDIDO (CONECTADO A CHECKOUT)
                       SizedBox(
                         width: double.infinity,
                         height: 50,
@@ -140,17 +146,20 @@ class _CartViewState extends State<CartView> {
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                           ),
                           onPressed: () {
-                             ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("¡Compra realizada con éxito!"),
-                                  backgroundColor: Colors.green,
-                                ),
-                              );
-                              setState(() {
-                                CartView.carrito.clear();
-                              });
+                            // [NUEVO] Navegación a la pantalla de Checkout
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => const CheckoutView())
+                            ).then((value) {
+                              // Opcional: Si vuelves del checkout y quieres refrescar algo, puedes hacerlo aquí
+                              setState(() {});
+                            });
                           },
-                          child: const Text("TRAMITAR PEDIDO", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          // [NUEVO] Uso de texto traducido (Español/Inglés/Valenciano)
+                          child: Text(
+                            l10n.btnBuy.toUpperCase(), 
+                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
+                          ),
                         ),
                       ),
                     ],
