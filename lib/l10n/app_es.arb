@@ -1,0 +1,18 @@
+{
+    "appTitle": "Perfumería Bloom",
+    "btnBuy": "Tramitar Pedido",
+    "formTitle": "Finalizar Compra",
+    "labelName": "Nombre Completo",
+    "labelAddress": "Dirección de Envío",
+    "labelDate": "Fecha de Entrega",
+    "labelPayment": "Método de Pago",
+    "labelGift": "Envolver para regalo",
+    "msgConfirm": "Confirmar Pedido",
+    "msgConfirmBody": "¿Estás seguro de realizar el pedido?",
+    "btnCancel": "Cancelar",
+    "btnConfirm": "Confirmar",
+    "errorEmpty": "Campo obligatorio",
+    "payCard": "Tarjeta de Crédito",
+    "payPayPal": "PayPal",
+    "orderSuccess": "¡Pedido realizado con éxito!"
+}

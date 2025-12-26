@@ -1,0 +1,18 @@
+{
+    "appTitle": "Perfumeria Bloom",
+    "btnBuy": "Tramitar Comanda",
+    "formTitle": "Finalitzar Compra",
+    "labelName": "Nom Complet",
+    "labelAddress": "Adreça d'Enviament",
+    "labelDate": "Data d'Entrega",
+    "labelPayment": "Mètode de Pagament",
+    "labelGift": "Embolicar per a regal",
+    "msgConfirm": "Confirmar Comanda",
+    "msgConfirmBody": "Estàs segur de realitzar la comanda?",
+    "btnCancel": "Cancel·lar",
+    "btnConfirm": "Confirmar",
+    "errorEmpty": "Camp obligatori",
+    "payCard": "Targeta de Crèdit",
+    "payPayPal": "PayPal",
+    "orderSuccess": "Comanda realitzada amb èxit!"
+}

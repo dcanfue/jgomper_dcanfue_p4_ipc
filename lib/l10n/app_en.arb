@@ -1,0 +1,18 @@
+{
+    "appTitle": "Bloom Perfumery",
+    "btnBuy": "Proceed to Checkout",
+    "formTitle": "Checkout Order",
+    "labelName": "Full Name",
+    "labelAddress": "Shipping Address",
+    "labelDate": "Delivery Date",
+    "labelPayment": "Payment Method",
+    "labelGift": "Wrap as a Gift",
+    "msgConfirm": "Confirm Order",
+    "msgConfirmBody": "Are you sure you want to place this order?",
+    "btnCancel": "Cancel",
+    "btnConfirm": "Confirm",
+    "errorEmpty": "Required field",
+    "payCard": "Credit Card",
+    "payPayPal": "PayPal",
+    "orderSuccess": "Order Placed Successfully!"
+}
