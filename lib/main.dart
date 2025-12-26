@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Si sale rojo, haz "flutter pub get"
+import 'l10n/app_localizations.dart';
 import 'views/login_view.dart';
 
 void main() => runApp(const MyApp());

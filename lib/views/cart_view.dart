@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // [NUEVO] Para traducciones
+import '../l10n/app_localizations.dart';
 import 'checkout_view.dart'; // [NUEVO] Para ir al formulario
 import 'list_view.dart'; // Tu modelo Perfume
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Para las traducciones
+import '../l10n/app_localizations.dart'; // Para las traducciones
 import 'package:intl/intl.dart'; // Para formatear la fecha
 import '../models/order_model.dart';
 import '../main.dart'; // Para poder cambiar el idioma
