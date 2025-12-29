@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'list_view.dart';
 import 'cart_view.dart'; // IMPORTANTE: Importamos el carrito
